@@ -1,0 +1,710 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+  html, body {
+    background-color: #FFFBEB;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px; /* Adjust padding as needed */
+    background-color: #f1f1f1; /* Background color for the header */
+  }
+
+  .logo img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 50px; /* Set the maximum height of the logo */
+    padding-left: 10px;
+  }
+
+  .full-height {
+    height: 100vh;
+  }
+  
+  .flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .position-ref {
+    position: relative;
+  }
+  
+  .top-right {
+    position: absolute;
+    right: 10px;
+    top: 26px;
+  }
+  
+  .content {
+    text-align: center;
+  }
+
+  /* Define the shake animation */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Apply the animation to the element with the shake-on-click class */
+  .shake-on-click {
+    transition: transform 0.3s;
+  }
+
+  .shake-on-click:hover {
+    animation: shake 0.5s;
+  }
+
+  
+  .links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+  
+  .m-b-md {
+    margin-bottom: 30px;
+  }
+  
+  footer{
+    background: #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 50px;
+    text-transform: uppercase;
+    border-bottom: 2px solid;
+    padding: 12px 0;
+    color: #5e2195;
+  }
+  
+  .wrapper{
+    max-width: 1140px;
+    padding: 10px;
+    margin: 20px auto;
+  }
+  
+  /* create cake form */
+  
+  .create-cake{
+    background: #f7f7f7;
+    padding: 20px;
+  
+    label, select{
+      display: block;
+    }
+  
+    label{
+      margin-top: 30px;
+    }
+  
+    select{
+      padding: 8px;
+      width: 200px;
+    }
+  
+    input[type=checkbox]{
+      margin: 10px;
+    }
+  
+    input[type=submit]{
+      background: #ffb700;
+      padding: 8px 20px;
+      color: #fff;
+      border: 0;
+      margin-top: 20px;
+    }
+
+    fieldset{
+        border: 0;
+    }
+  
+  }
+  
+  /* cake details page */
+  .cake-page{
+    img{
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      z-index: 0;
+    }
+    .line{
+      width: 500px;
+      text-align: center;
+    }
+  }
+
+  .cake-details{
+    padding: 4%;
+    padding-top: 0%;
+  
+    p{
+      font-weight:500;
+    }
+    button{
+      background: #ffb700;
+      padding: 8px 20px;
+      color: #fff;
+      border: 0;
+      margin-top: 20px;
+    }
+  }
+  a.back{
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #2f2f2f;
+    margin-bottom: 20px;
+  }
+  
+  /* cake index page */
+  
+  .cake-index{
+    h1{
+      margin-bottom: 40px;
+    }
+    .cake-item{
+      margin: 10px 0;
+      padding: 12px;
+      padding-top: 8px;
+      background: #ffb700;
+      
+      img{
+        width: 60px;
+        display: inline-block;
+      }
+      h4{
+        display: inline-block;
+        font-weight: normal;
+        margin-left: 20px;
+        padding-top: 7px;
+        
+        a{
+          color: #000000;
+          text-decoration: none !important;
+          
+        }
+      }
+    }
+  }
+
+  input[type=text]{
+    color:rgb(97, 96, 96);
+  }
+
+  
+  .accordion{
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: #FFFDF4;
+  }
+  
+
+  .accordion-body{
+    transition-duration: 10000000s;
+  }
+
+  .accordion-button{
+    background-color: #FFFDF4;
+  }
+
+  a.readmore{
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #f8b600;
+    background-color: white;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .readmorebutt{
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  
+  
+  .banner {
+    max-width: 100%; /* Set the maximum width of the banner */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+  .banner-image {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Maintain the aspect ratio of the image */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+  .bg-login {
+    background-image: url('../../public/img/cake.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  .appform-body {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      text-align: left;
+      padding-left: 8%;
+      padding-right: 8%;
+      padding-top: 3%;
+      padding-bottom: 2%;
+      border-radius: 0.25rem;
+      max-width: 100%;
+  }
+
+  .appform-form-group {
+      margin-bottom: 1rem;
+  }
+
+  .appform-input-group {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      width: 100%;
+  }
+
+  .appform-form-control {
+      display: block;
+      width: 100%;
+      height: calc(1.5em + 0.75rem + 2px);
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      outline: none;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .appform-form-control:focus {
+      border: 1px solid #313131;
+  }
+
+  select.appform-form-control[size], select.appform-form-control[multiple] {
+      height: auto;
+  }
+
+  textarea.appform-form-control {
+      height: auto;
+  }
+
+  label.appform-label {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+  }
+
+  .appform-btn {
+      display: inline-block;
+      font-weight: 400;
+      color: #212529;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+      .appform-btn {
+          transition: none;
+      }
+  }
+
+  .appform-btn:hover {
+      color: #ec8e00;
+      text-decoration: none;
+  }
+
+  .appform-btn:focus, .appform-btn.focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgb(255, 136, 0);
+  }
+
+  .appform-btn-primary {
+      color: #fff;
+      font-weight: bold;
+      background-color: #ffbb00;
+      border-color: #ffbb00;
+  }
+
+  .appform-btn-primary:hover {
+      color: #fff;
+      background-color: #ff6200;
+      border-color: #ffbf00;
+  }
+
+  .appform-btn-primary:focus, .fcf-btn-primary.focus {
+      color: #fff;
+      background-color: #ed8803;
+      border-color: #ed8803;
+      box-shadow: 0 0 0 0.2rem rgba(255, 145, 0, 0.956);
+  }
+
+  .appform-btn-lg, .appform-btn-group-lg>.appform-btn {
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      border-radius: 0.3rem;
+  }
+
+  .appform-btn-block {
+      display: block;
+      width: 100%;
+  }
+
+  .appform-btn-block+.appform-btn-block {
+      margin-top: 0.5rem;
+  }
+
+  input[type="submit"].appform-btn-block, input[type="reset"].appform-btn-block, input[type="button"].appform-btn-block {
+      width: 100%;
+  }
+
+  .badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 100%;
+    border-radius: 9px;
+  }
+
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 12px;
+      background: #ff4000;
+      color: #fff;
+      padding: 2px 4px;
+      vertical-align: top;
+      margin-left: -10px; 
+  }
+
+
+  @media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-grey {
+    background-color: #ffb700;
+    }
+    
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+    
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+
+  .payment-method {
+    width: 50px;  /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+  }
+
+  .custom-select {
+    border-radius: 8px; /* Adjust the value to make it more or less rounded */
+    padding: 10px; /* Optional: Adjust padding for better appearance */
+    border: 1px solid #ccc; /* Optional: Adjust border style */
+    box-shadow: none; /* Optional: Remove box-shadow if any */
+    appearance: none; /* Optional: Remove default styling in some browsers */
+  }
+
+  .custom-select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* Optional: Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add focus shadow */
+  }
+
+  .custom-placeholder::placeholder {
+    font-size: 0.8em; /* Adjust the value as needed */
+    color: #6c757d; /* Optional: Adjust the placeholder text color */
+  }
+
+  .custom-buttonwidth {
+    width: 100%; /* Adjust the width as needed */
+  }
+
+  .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem; /* Equivalent to h-16 */
+    padding: 0 1rem; /* Optional: Adjust padding as needed */
+  }
+
+  .list-group-item a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+  }
+
+  .banner {
+    position: relative;
+  }
+
+  .banner .banner-name {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 10px;
+  }
+
+  .banner .banner-earnings {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 10px;
+  }
+
+  .banner .banner-ad {
+    position: absolute;
+    bottom: 5px;
+    right: 6px;
+    color: white;
+    font-family: 'Montserrat';
+    padding: 10px;
+  }
+
+  .searchbar {
+    position: absolute;
+    right: 45px;
+    padding-top: 7px;
+  }
+
+
+  .clickable-row {
+      cursor: pointer;
+  }
+
+  .clickable-row:hover {
+      color: #ffffff !important;/* Change to your desired hover text color */
+      background-color: #ff4000 !important;
+      border-top-left-radius: 10px; /* Adjust the radius as needed */
+      border-bottom-left-radius: 10px; /* Adjust the radius as needed */
+  }
+
+  .product-image {
+    margin: 0 auto; /* Centers horizontally */
+    border-radius: 2%;
+  }
+
+  .wishlist-icon {
+      cursor: pointer;
+      font-size: xxx-large;
+  }
+
+  .wishlist-added {
+      color: #ff0000;   /* Change color to red */
+      
+  }
+
+  .wishlist-removed {
+      color: inherit;   /* Revert color to default */
+        
+  }
+
+  .cake-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .time-selection-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    color: #6b7280; /* gray-500 */
+    background-color: #ffffff; /* white */
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 0.375rem; /* rounded-lg */
+    cursor: pointer;
+  }
+
+  .time-selection-label:hover {
+      background-color: #f9fafb; /* gray-50 */
+      color: #111827; /* gray-900 */
+  }
+
+  input[type="radio"]:checked + .time-selection-label {
+      border-color: #1e3a8a; /* blue-700 */
+      background-color: #eff6ff; /* blue-50 */
+      color: #1e3a8a; /* blue-700 */
+  }
+
+  .blog-card {
+      background-color: #FFFBEB;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover {
+      transform: translateY(-5px);
+  }
+
+  .blog-card img {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+  }
+
+  .blog-card-content {
+      padding: 1.5rem;
+  }
+
+  .blog-card-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+  }
+
+  .blog-card-content p {
+      color: #4a5568;
+      margin-bottom: 1rem;
+  }
+
+  .blog-card-content a {
+      color: #d97706;
+      text-decoration: none;
+      font-weight: 600;
+  }
+
+  .blog-card-content a:hover {
+      text-decoration: underline;
+  }
+
+
+  /* Add these styles to your CSS file */
+@media (max-width: 1200px) {
+  .carousel-caption h1 {
+      font-size: 2.5rem; /* Adjust this value as needed */
+  }
+  .carousel-caption p {
+      font-size: 1rem; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-caption h1 {
+      font-size: 2rem; /* Adjust this value as needed */
+  }
+  .carousel-caption p {
+      font-size: 0.9rem; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-caption h1 {
+      font-size: 1.5rem; /* Adjust this value as needed */
+  }
+  .carousel-caption p {
+      font-size: 0.8rem; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-caption h1 {
+      font-size: 1.2rem; /* Adjust this value as needed */
+  }
+  .carousel-caption p {
+      font-size: 0.7rem; /* Adjust this value as needed */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

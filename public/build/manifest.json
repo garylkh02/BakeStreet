@@ -1,0 +1,27 @@
+{
+  "public/img/cake.png": {
+    "file": "assets/cake-5yAWNG-O.png",
+    "src": "public/img/cake.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-F2e95XlD.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-C3wsNesX.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/scss/footer.scss": {
+    "file": "assets/footer-DAZT9g7v.css",
+    "src": "resources/scss/footer.scss",
+    "isEntry": true
+  },
+  "resources/scss/main.scss": {
+    "file": "assets/main-CvgaNDzX.css",
+    "src": "resources/scss/main.scss",
+    "isEntry": true
+  }
+}
