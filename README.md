@@ -13,7 +13,7 @@ Requirements
 
 Installation:
 Clone the Repository
-git clone https://github.com/LeeKahHoong/bakestreet5
+git clone https://github.com/garylkh02/BakeStreet
 run command "cd bakestreet" in terminal
 
 Install PHP Dependencies
