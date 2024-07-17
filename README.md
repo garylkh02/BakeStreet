@@ -1,6 +1,8 @@
 Project Bakestreet
+
 Overview
 Bakestreet is an online bakery ordering system built using the Laravel framework. The project includes user authentication, role-based access control, and a variety of functionalities for users, bakeries, and administrator. The system is designed to enhance the online bakery experience by providing an intuitive interface and comprehensive management features.
+
 Requirements
 	•	PHP >= 8.0
 	•	Composer
@@ -8,39 +10,40 @@ Requirements
 	•	MySQL
 	•	XAMPP 
 
-Installation
+
+Installation:
 Clone the Repository
 git clone https://github.com/LeeKahHoong/bakestreet5
-cd bakestreet
+run command "cd bakestreet" in terminal
 
 Install PHP Dependencies
-composer install
+run command "composer install" in terminal
 
 Install Node.js Dependencies
-npm install
+run command "npm install" in terminal
 
-Configure Environment Variables
-Update .env to match your environment
+Configure Environment Variables:
+Update .env file to match your environment
 
-Generate Application Key
-php artisan key:generate
+Generate Application Key:
+run command "php artisan key:generate" in terminal
 
-Run Migrations
-php artisan migrate
-
-
-Running the Application
-Start the Development Server
-php artisan serve
-
-Build Assets with Vite
-In a separate terminal, run:
-npm run dev
+Run Migrations:
+run command "php artisan migrate" in terminal
 
 
-Access the Application
+Running the Application:
+Start the Development Server,
+run command "php artisan serve" in terminal
+
+Build Assets with Vite:
+In a separate terminal,
+run command "npm run dev" in terminal
+
+
+Access the Application:
 Open your browser and navigate to localhost
 
 
-Contact
+Contact:
 For further inquiries or support, contact Gary Lee at garylkh05@gmail.com
