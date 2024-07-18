@@ -13,7 +13,7 @@
                     <i class="fa-solid fa-angle-right" style="color: #7a7a7a;"></i>
                 </li>
                 <li class="flex items-center">
-                    <a href="/allproducts" class="text-gray-700 hover:text-gray-900"> &nbsp&nbsp Christmas</a>
+                    <a href="/christmas" class="text-gray-700 hover:text-gray-900"> &nbsp&nbsp Christmas</a>
                 </li>
             </ol>
         </nav>
@@ -28,7 +28,6 @@
                 {{ __('Christmas 2024') }}
             </h1>
                 <div class="cake-index">
-                      <!-- Inject value or data into view and access from the view -->
                       <p class="mssg">{{ session('mssg') }}</p>
 
                   <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
@@ -78,7 +77,7 @@
 <h2 class="pb-2">Frequently Asked Questions</h2>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-amber-400" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+      <button class="accordion-button collapsed bg-amber-400 hover:bg-amber-400 active:bg-amber-200 focus:bg-amber-200" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
         Are all products on Bake Street Halal?
       </button>
     </h2>
@@ -90,7 +89,7 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <button class="accordion-button collapsed bg-amber-400 hover:bg-amber-400 active:bg-amber-200 focus:bg-amber-200" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
       I received my cake and it looks different from the pictures on the website.
       </button>
     </h2>
@@ -102,13 +101,13 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Accordion Item #3
+      <button class="accordion-button collapsed bg-amber-400 hover:bg-amber-400 active:bg-amber-200 focus:bg-amber-200" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        How do I know if the cakes are free from allergens?
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>All allergens will be displayed on each individual product page. </strong>However, most of our cakes are baked in an environment that is exposed to common allergens such as dairy, nuts, eggs, wheat, etc. Please take precautionary measures to ensure that your recipient is not allergic to the allergens mentioned above before placing an order
       </div>
     </div>
   </div>

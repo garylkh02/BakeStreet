@@ -71,8 +71,8 @@
       const arrow = this.querySelector('i');
 
       content.classList.toggle('hidden');
-      arrow.classList.toggle('fa-chevron-right'); // Toggle class for arrow icon
-      arrow.classList.toggle('fa-chevron-down'); // Toggle class for arrow icon
+      arrow.classList.toggle('fa-chevron-right'); 
+      arrow.classList.toggle('fa-chevron-down'); 
     });
   });
 </script>

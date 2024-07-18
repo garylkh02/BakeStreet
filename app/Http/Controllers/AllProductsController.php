@@ -42,6 +42,13 @@ class AllProductsController extends Controller
         return view('cakes.show', compact('cake', 'averageRating', 'reviews', 'reviewCount', 'displayReviews', 'recommendedCakes', 'addons', 'sizes'));
     }
 
+    public function anniversary() {
+        $cakes = Cake::where('occasions', 'Anniversary')->latest()->get();     
+        return view('cakes.anniversary', [
+            'cakes' => $cakes,
+        ]);
+    }
+
     public function christmas() {
         $cakes = Cake::where('occasions', 'Christmas')->latest()->get();     
         return view('cakes.christmas', [
@@ -67,7 +74,7 @@ class AllProductsController extends Controller
 
     public function jb() {
         $cakes = Cake::whereHas('bakery', function ($query) {
-            $query->where('location', 'Johor');
+            $query->where('location', 'Johor Bahru');
         })->latest()->get();
 
         return view('cakes.johor', ['cakes' => $cakes]);
@@ -108,7 +115,7 @@ class AllProductsController extends Controller
         ]);
     }
 
-    // search function
+    // Search function
     public function search() {
         $cakes = Cake::latest()->get(); 
     

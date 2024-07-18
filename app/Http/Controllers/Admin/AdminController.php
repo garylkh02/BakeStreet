@@ -20,13 +20,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        // Count pending enquiries in ContactUs table
         $contactUsPendingCount = ContactUs::where('status', 'to be reviewed')->count();
 
-        // Count pending enquiries in BContactUs table
         $bContactUsPendingCount = BContactUs::where('status', 'to be reviewed')->count();
 
-        // Sum the counts
         $pendingEnquiryCount = $contactUsPendingCount + $bContactUsPendingCount;
 
         $applicationCount = Application::where('status', 'to be reviewed')->count();
@@ -39,7 +36,6 @@ class AdminController extends Controller
         $reviewedCount = CorporateOrder::where('status', 'reviewed')->count();
         $readyCount = CorporateOrder::where('status', 'ready')->count();
     
-        // Sum of counts
         $totalCount = $toBeReviewedCount + $reviewedCount + $readyCount;
 
         $availableCorpOrder = $totalCount > 0;
@@ -54,7 +50,6 @@ class AdminController extends Controller
     }
 
     public function userlist() {
-        // Retrieve users where usertype is 'user' and sort by user ID in ascending order
         $users = User::where('usertype', 'user')->orderBy('id', 'asc')->get();
         session(['previous_page' => 'userlist']);
         return view('admin.userlist', [
@@ -64,24 +59,19 @@ class AdminController extends Controller
 
     public function usersearch(Request $request)
     {
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
-
-        // Initialize the query to search in the users table and filter by usertype 'user'
+        $searchTerm = $request->input('search', ''); 
         $query = User::where('usertype', 'user');
 
         if (!empty($searchTerm)) {
-            // Search by email or any other field you need, here it searches by email
             $query->where('email', 'like', '%' . $searchTerm . '%');
         }
 
-        // Get the search results
         $results = $query->get();
         session(['previous_page' => 'searchuser']);
         return view('admin.userresult', compact('results'));
     }
     
     public function bakerylist() {
-        // Retrieve users where usertype is 'user'
         $users = User::where('usertype', 'bakery')->orderBy('id', 'asc')->get();
         session(['previous_page' => 'bakerylist']);
         return view('admin.bakerylist', [
@@ -91,17 +81,13 @@ class AdminController extends Controller
 
     public function bakerysearch(Request $request)
     {
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
-
-        // Initialize the query to search in the users table and filter by usertype 'user'
+        $searchTerm = $request->input('search', ''); 
         $query = User::where('usertype', 'bakery');
 
         if (!empty($searchTerm)) {
-            // Search by email or any other field you need, here it searches by email
             $query->where('email', 'like', '%' . $searchTerm . '%');
         }
 
-        // Get the search results
         $results = $query->get();
         session(['previous_page' => 'searchbakery']);
         return view('admin.userresult', compact('results'));
@@ -120,7 +106,6 @@ class AdminController extends Controller
     }
 
     public function userenquiry() {
-        // Retrieve users where usertype is 'user' and sort by user ID in ascending order
         $enquiry = ContactUs::orderBy('id', 'asc')->get();
 
         session(['previous_page' => 'user']);
@@ -131,7 +116,6 @@ class AdminController extends Controller
     }
 
     public function bakeryenquiry() {
-        // Retrieve users where usertype is 'user' and sort by user ID in ascending order
         $enquiry = BContactUs::orderBy('id', 'asc')->get();
 
         session(['previous_page' => 'bakery']);
@@ -143,24 +127,21 @@ class AdminController extends Controller
 
     public function enquirysearch(Request $request)
     {
-        $userId = Auth::id(); // Get the logged-in user's ID
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
+        $userId = Auth::id(); 
+        $searchTerm = $request->input('search', '');
 
-        // Initialize the query to search in ContactUs table
         $contactUsQuery = ContactUs::query();
         if (!empty($searchTerm)) {
             $contactUsQuery->where('email', 'like', '%' . $searchTerm . '%');
         }
         $contactUsResults = $contactUsQuery->get();
 
-        // Initialize the query to search in BContactUs table
         $bContactUsQuery = BContactUs::query();
         if (!empty($searchTerm)) {
             $bContactUsQuery->where('email', 'like', '%' . $searchTerm . '%');
         }
         $bContactUsResults = $bContactUsQuery->get();
 
-        // Combine the results
         $results = $contactUsResults->merge($bContactUsResults);
         session(['previous_page' => 'search']);
 
@@ -169,10 +150,8 @@ class AdminController extends Controller
 
     public function uenquirysearch(Request $request)
     {
-        $userId = Auth::id(); // Get the logged-in user's ID
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
-
-        // Initialize the query to search in ContactUs table
+        $userId = Auth::id(); 
+        $searchTerm = $request->input('search', ''); 
         $query = ContactUs::query();
 
         if (!empty($searchTerm)) {
@@ -187,10 +166,8 @@ class AdminController extends Controller
 
     public function benquirysearch(Request $request)
     {
-        $userId = Auth::id(); // Get the logged-in user's ID
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
-
-        // Initialize the query to search in ContactUs table
+        $userId = Auth::id();
+        $searchTerm = $request->input('search', '');
         $query = BContactUs::query();
 
         if (!empty($searchTerm)) {
@@ -204,7 +181,6 @@ class AdminController extends Controller
 
     public function showuseren($id)
     {
-        // Retrieve the enquiry from the ContactUs table by its ID
         $enquiry = ContactUs::findOrFail($id);
 
         return view('admin.showenquiry', compact('enquiry'));
@@ -212,7 +188,6 @@ class AdminController extends Controller
 
     public function showbakeryen($id)
     {
-        // Retrieve the enquiry from the ContactUs table by its ID
         $enquiry = BContactUs::findOrFail($id);
 
         return view('admin.showenquiry', compact('enquiry'));
@@ -220,41 +195,34 @@ class AdminController extends Controller
 
     public function showenquiry($id, $type)
     {
-        // Determine the model to use based on the type parameter
-        $model = $type === 'bakery' ? BContactUs::class : ContactUs::class;
-
-        // Retrieve the enquiry from the appropriate table by its ID
-        $enquiry = $model::findOrFail($id);
-
-        return view('admin.showenquiry', compact('enquiry'));
-    }
+        if ($type === 'bakery') {
+            $enquiry = BContactUs::with('bakery')->findOrFail($id);
+        } else {
+            $enquiry = ContactUs::findOrFail($id);
+        }
+    
+        return view('admin.showenquiry', compact('enquiry', 'type'));
+    }    
 
     public function updateEnquiryStatus(Request $request, $id, $type)
     {
-        // Determine the model to use based on the type parameter
         $model = $type === 'bakery' ? BContactUs::class : ContactUs::class;
 
-        // Retrieve the enquiry from the appropriate table by its ID
         $enquiry = $model::findOrFail($id);
 
-        // Update the status
         $enquiry->status = $request->input('status');
         $enquiry->save();
 
-        // Send email notification
         Mail::to($enquiry->email)->send(new EnquiryStatusUpdate($enquiry, $type));
 
-        // Redirect back with a success message
         return redirect()->back()->with('success', 'Enquiry status updated successfully.');
     }
 
 
     public function showUser($id)
     {
-        // Fetch the user by ID
         $user = User::findOrFail($id);
 
-        // Pass the user object to the view
         return view('admin.userdetails', [
             'user' => $user,
         ]);
@@ -285,10 +253,8 @@ class AdminController extends Controller
 
     public function showBakery($id)
     {
-        // Fetch the user by ID, along with the related bakery
         $user = User::with('bakery')->findOrFail($id);
 
-        // Pass the user object to the view
         return view('admin.bakerydetails', [
             'user' => $user,
         ]);
@@ -304,12 +270,9 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
 
-        // Update user details
         $user->update($request->only(['name', 'email', 'phone', 'address', 'usertype']));
 
-        // Check if the user has a related bakery
         if ($user->bakery) {
-            // Update bakery details
             $user->bakery->update($request->only(['location']));
         }
 
@@ -326,7 +289,6 @@ class AdminController extends Controller
 
     public function bakeryApplicationList() 
     {
-        // Retrieve applications and order by status and ID
         $applications = Application::orderByRaw("FIELD(status, 'to be reviewed') DESC")->orderBy('id', 'asc')->get();
 
         session(['previous_page' => 'bakeryApplicationList']);
@@ -338,18 +300,15 @@ class AdminController extends Controller
 
     public function applicationSearch(Request $request)
     {
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
+        $searchTerm = $request->input('search', '');
     
-        // Initialize the query to search in the applications table
         $query = Application::orderByRaw("FIELD(status, 'to be reviewed') DESC")
             ->orderBy('id', 'asc');
     
         if (!empty($searchTerm)) {
-            // Search by email or any other field you need, here it searches by email
             $query->where('email', 'like', '%' . $searchTerm . '%');
         }
     
-        // Get the search results
         $results = $query->get();
         session(['previous_page' => 'searchbakery']);
         return view('admin.applicationresult', compact('results'));
@@ -358,7 +317,6 @@ class AdminController extends Controller
 
     public function showApplication($id)
     {
-        // Retrieve the enquiry from the ContactUs table by its ID
         $application = Application::findOrFail($id);
 
         return view('admin.applicationdetails', compact('application'));
@@ -368,7 +326,6 @@ class AdminController extends Controller
     {
         $application = Application::findOrFail($id);
 
-        // Update the application status
         $application->update($request->only(['status']));
 
         if ($request->input('status') == 'approved') {
@@ -376,12 +333,11 @@ class AdminController extends Controller
             $user = User::where('email', $application->email)->first();
             
             if (!$user) {
-                // Create a new user
                 $user = User::create([
                     'name' => $application->bakery_name,
                     'email' => $application->email,
                     'phone' => $application->phone,
-                    'password' => bcrypt('abcd1234!'), // Set a default password or generate one
+                    'password' => bcrypt('abcd1234!'), // Default password
                     'usertype' => 'bakery',
                     'address' => $application->address,
                 ]);
@@ -392,7 +348,6 @@ class AdminController extends Controller
             $bakery = Bakery::where('user_id', $user->id)->first();
 
             if (!$bakery) {
-                // Create a new bakery associated with the user
                 Bakery::create([
                     'name' => $application->bakery_name,
                     'location' => $application->bakery_location,

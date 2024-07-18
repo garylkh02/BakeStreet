@@ -29,11 +29,6 @@ class Order extends Model
         'delivery_instructions'
     ];
 
-/*     public function cake()
-    {
-        return $this->belongsTo(Cake::class);
-    } */
-
     public function cakes()
     {
         return $this->belongsToMany(Cake::class, 'order_items')

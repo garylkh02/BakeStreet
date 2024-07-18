@@ -64,6 +64,10 @@
             Enquiry ID: # {{ $enquiry->id }}
         </div>
         <div class="card-body">
+            @if(session('previous_page') == 'bakery')
+            <p><strong>Bakery ID:</strong> {{ $enquiry->bakery_id }}</p>
+            <p><strong>Bakery Name:</strong> {{ $enquiry->bakery->name }}</p>
+            @endif
             <p><strong>Name:</strong> {{ $enquiry->name }}</p>
             <p><strong>Email:</strong> {{ $enquiry->email }}</p>
             <p><strong>Phone:</strong> {{ $enquiry->phone }}</p>

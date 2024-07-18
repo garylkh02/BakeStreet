@@ -41,7 +41,6 @@
         </div>
     @endif
 
-    <!-- Form to Add New Category -->
     <form action="{{ route('bakery.addCategory') }}" method="POST" class="mb-6">
         @csrf
         <div class="mb-4">
@@ -51,7 +50,6 @@
         <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-amber-400 font-bold text-white rounded-md">Add Category</button>
     </form>
 
-    <!-- Display Current Categories -->
     <h2 class="text-xl font-bold mb-2">Current Categories</h2>
     <ul>
         @foreach($categories as $category)

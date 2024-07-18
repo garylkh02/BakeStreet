@@ -22,7 +22,6 @@ class ApplicationController extends Controller
             return redirect()->back()->with('error', 'This email is already in use. Please enter another email.');
         }
 
-        // Create a new application
         $application = new Application();
 
         $application->name = $request->input('name');

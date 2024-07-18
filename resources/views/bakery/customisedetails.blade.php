@@ -87,7 +87,6 @@
         </div>
     </div>
 
-    <!-- Display the uploaded image -->
     <div class="mt-6 text-center">
         <h3 class="text-lg font-medium text-gray-900">Uploaded Cake Photo</h3>
         @if ($customOrder->photo)

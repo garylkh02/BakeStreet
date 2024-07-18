@@ -76,7 +76,6 @@
                         <div class="w-full text-xl font-bold text-black text-left">Order Number: #{{ $order->id }}</div>
                         <div class="w-full text-xl text-left pt-1">{{ $order->quantity }}x {{ $order->name }}</div>
                         <div class="w-full text-md text-left pt-1">Cake Price: RM {{ number_format($order->price, 2) }}</div>
-                    <!--  <div class="w-full text-sm text-left pt-1">Order placed on {{ $order->created_at->format('d M Y') }}</div> -->
                         <div class="w-full text-md text-left pt-1">Status: {{ ucfirst($order->status) }}</div>
                         <div class="w-full text-sm text-left pt-1">Preparation time remaining: {{ $daysLeft }} Days</div>
                     </div>

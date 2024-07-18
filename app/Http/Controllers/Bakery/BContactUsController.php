@@ -17,7 +17,6 @@ class BContactUsController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request inputs
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -25,25 +24,22 @@ class BContactUsController extends Controller
             'message' => 'required|string|max:500'
         ]);
 
-        // Get the logged-in user
         $user = Auth::user();
 
-        // Retrieve the bakery associated with the user
         $bakery = $user->bakery;
 
         if (!$bakery) {
             return redirect('/')->with('error', 'No bakery associated with this user.');
         }
 
-        // Create a new feedback
         $bakerycontactus = new BContactUs();
 
         $bakerycontactus->name = $request->input('name');
         $bakerycontactus->phone = $request->input('phone');
         $bakerycontactus->email = $request->input('email');
         $bakerycontactus->message = $request->input('message');
-        $bakerycontactus->bakery_id = $bakery->id; // Assign the bakery_id
-        $bakerycontactus->status = 'to be reviewed'; // Assign the default status
+        $bakerycontactus->bakery_id = $bakery->id; 
+        $bakerycontactus->status = 'to be reviewed';
 
         $bakerycontactus->save();
 

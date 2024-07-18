@@ -13,14 +13,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 20px; /* Adjust padding as needed */
-    background-color: #f1f1f1; /* Background color for the header */
+    padding: 14px 20px;
+    background-color: #f1f1f1; 
   }
 
   .logo img {
-    max-width: 100%; /* Ensure the image doesn't exceed its container */
-    height: auto; /* Maintain the aspect ratio */
-    max-height: 50px; /* Set the maximum height of the logo */
+    max-width: 100%; 
+    height: auto;
+    max-height: 50px; 
     padding-left: 10px;
   }
 
@@ -48,7 +48,6 @@
     text-align: center;
   }
 
-  /* Define the shake animation */
   @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
@@ -57,7 +56,6 @@
     100% { transform: translateX(0); }
   }
 
-  /* Apply the animation to the element with the shake-on-click class */
   .shake-on-click {
     transition: transform 0.3s;
   }
@@ -105,8 +103,6 @@
     margin: 20px auto;
   }
   
-  /* create cake form */
-  
   .create-cake{
     background: #f7f7f7;
     padding: 20px;
@@ -142,7 +138,6 @@
   
   }
   
-  /* cake details page */
   .cake-page{
     img{
       width: 500px;
@@ -179,7 +174,6 @@
     margin-bottom: 20px;
   }
   
-  /* cake index page */
   
   .cake-index{
     h1{
@@ -249,14 +243,14 @@
   
   
   .banner {
-    max-width: 100%; /* Set the maximum width of the banner */
-    overflow: hidden; /* Hide any overflowing content */
+    max-width: 100%;
+    overflow: hidden; 
 }
 
   .banner-image {
-    width: 100%; /* Make the image fill the container */
-    height: 100%; /* Maintain the aspect ratio of the image */
-    display: block; /* Ensure the image is displayed as a block element */
+    width: 100%;
+    height: 100%; 
+    display: block;
 }
 
   .bg-login {
@@ -464,39 +458,39 @@
     }
 
   .payment-method {
-    width: 50px;  /* Adjust the width as needed */
-    height: auto; /* Maintain the aspect ratio */
+    width: 50px;  
+    height: auto;
   }
 
   .custom-select {
-    border-radius: 8px; /* Adjust the value to make it more or less rounded */
-    padding: 10px; /* Optional: Adjust padding for better appearance */
-    border: 1px solid #ccc; /* Optional: Adjust border style */
-    box-shadow: none; /* Optional: Remove box-shadow if any */
-    appearance: none; /* Optional: Remove default styling in some browsers */
+    border-radius: 8px; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    box-shadow: none;
+    appearance: none; 
   }
 
   .custom-select:focus {
-    outline: none; /* Remove default focus outline */
-    border-color: #007bff; /* Optional: Change border color on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: Add focus shadow */
+    outline: none;
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
   }
 
   .custom-placeholder::placeholder {
-    font-size: 0.8em; /* Adjust the value as needed */
-    color: #6c757d; /* Optional: Adjust the placeholder text color */
+    font-size: 0.8em; 
+    color: #6c757d; 
   }
 
   .custom-buttonwidth {
-    width: 100%; /* Adjust the width as needed */
+    width: 100%; 
   }
 
   .list-group-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem; /* Equivalent to h-16 */
-    padding: 0 1rem; /* Optional: Adjust padding as needed */
+    height: 4rem;
+    padding: 0 1rem; 
   }
 
   .list-group-item a {
@@ -548,14 +542,14 @@
   }
 
   .clickable-row:hover {
-      color: #ffffff !important;/* Change to your desired hover text color */
+      color: #ffffff !important;
       background-color: #ff4000 !important;
-      border-top-left-radius: 10px; /* Adjust the radius as needed */
-      border-bottom-left-radius: 10px; /* Adjust the radius as needed */
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px; 
   }
 
   .product-image {
-    margin: 0 auto; /* Centers horizontally */
+    margin: 0 auto; 
     border-radius: 2%;
   }
 
@@ -565,12 +559,12 @@
   }
 
   .wishlist-added {
-      color: #ff0000;   /* Change color to red */
+      color: #ff0000;   
       
   }
 
   .wishlist-removed {
-      color: inherit;   /* Revert color to default */
+      color: inherit;  
         
   }
 
@@ -590,22 +584,22 @@
     font-size: 0.875rem;
     font-weight: 500;
     text-align: center;
-    color: #6b7280; /* gray-500 */
-    background-color: #ffffff; /* white */
-    border: 1px solid #e5e7eb; /* gray-200 */
-    border-radius: 0.375rem; /* rounded-lg */
+    color: #6b7280; 
+    background-color: #ffffff; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 0.375rem; 
     cursor: pointer;
   }
 
   .time-selection-label:hover {
-      background-color: #f9fafb; /* gray-50 */
-      color: #111827; /* gray-900 */
+      background-color: #f9fafb; 
+      color: #111827; 
   }
 
   input[type="radio"]:checked + .time-selection-label {
-      border-color: #1e3a8a; /* blue-700 */
-      background-color: #eff6ff; /* blue-50 */
-      color: #1e3a8a; /* blue-700 */
+      border-color: #1e3a8a; 
+      background-color: #eff6ff; 
+      color: #1e3a8a; 
   }
 
   .blog-card {
@@ -652,40 +646,39 @@
   }
 
 
-  /* Add these styles to your CSS file */
 @media (max-width: 1200px) {
   .carousel-caption h1 {
-      font-size: 2.5rem; /* Adjust this value as needed */
+      font-size: 2.5rem; 
   }
   .carousel-caption p {
-      font-size: 1rem; /* Adjust this value as needed */
+      font-size: 1rem; 
   }
 }
 
 @media (max-width: 992px) {
   .carousel-caption h1 {
-      font-size: 2rem; /* Adjust this value as needed */
+      font-size: 2rem; 
   }
   .carousel-caption p {
-      font-size: 0.9rem; /* Adjust this value as needed */
+      font-size: 0.9rem; 
   }
 }
 
 @media (max-width: 768px) {
   .carousel-caption h1 {
-      font-size: 1.5rem; /* Adjust this value as needed */
+      font-size: 1.5rem; 
   }
   .carousel-caption p {
-      font-size: 0.8rem; /* Adjust this value as needed */
+      font-size: 0.8rem;
   }
 }
 
 @media (max-width: 576px) {
   .carousel-caption h1 {
-      font-size: 1.2rem; /* Adjust this value as needed */
+      font-size: 1.2rem;
   }
   .carousel-caption p {
-      font-size: 0.7rem; /* Adjust this value as needed */
+      font-size: 0.7rem; 
   }
 }
 

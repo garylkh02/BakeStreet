@@ -52,19 +52,15 @@ class CorporateOrderController extends Controller
 
     public function corporateOrderList()
     {
-        // Retrieve all corporate orders
         $corporateOrders = CorporateOrder::all();
 
-        // Pass the orders to the view
         return view('admin.corporateOrderList', compact('corporateOrders'));
     }
 
     public function corporateOrderDetails($id)
     {
-        // Fetch the user by ID, along with the related bakery
         $corporateOrders = CorporateOrder::findOrFail($id);
 
-        // Pass the user object to the view
         return view('admin.corporateOrderDetails', [
             'corporateOrder' => $corporateOrders,
         ]);
@@ -72,7 +68,6 @@ class CorporateOrderController extends Controller
 
     public function updateCorporateOrderStatus(Request $request, $id)
     {
-        // Validate the request data
         $validatedData = $request->validate([
             'status' => 'required|string|max:255',
         ]);
@@ -87,13 +82,12 @@ class CorporateOrderController extends Controller
         // Send email notification
         Mail::to($corporateOrder->email)->send(new CorporateOrderStatus($corporateOrder));
 
-        // Redirect back with a success message
         return redirect()->route('corporateOrders.show', $id)->with('success', 'Status updated successfully.');
     }
 
     public function corporateOrderSearch(Request $request)
     {
-        $searchTerm = $request->input('search', ''); // Get the search term, default to empty string if not present
+        $searchTerm = $request->input('search', ''); 
 
         $query = CorporateOrder::query();
 

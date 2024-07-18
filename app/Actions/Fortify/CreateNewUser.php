@@ -47,19 +47,16 @@ class CreateNewUser implements CreatesNewUsers
                 'address' => $input['address'],
                 'password' => Hash::make($input['password']),
                 'loyalty_points' => 100,
-                'referral_code' => $this->generateReferralCode(), // Generate a unique referral code
-                'birthday' => $input['birthday'], // Save birthday to the database
+                'referral_code' => $this->generateReferralCode(),
+                'birthday' => $input['birthday'],
             ]), function (User $user) use ($referrer) {
 
-                // Create initial loyalty points
                 $this->createLoyaltyPoints($user);
             
-                // Award points if referred
                 if ($referrer) {
                     $this->awardReferralPoints($user, $referrer);
                 }
 
-                // Create coupons for the new user
                 $this->firstCoupon($user);
                 $this->freedelCoupon($user);
             });
@@ -72,18 +69,6 @@ class CreateNewUser implements CreatesNewUsers
     {
         return ['required', 'string', 'min:8', 'confirmed', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/'];
     }
-
-    /**
-     * Create a personal team for the user.
-     */
-/*     protected function createTeam(User $user): void
-    {
-        $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0]."'s Team",
-            'personal_team' => true,
-        ]));
-    } */
 
     /**
      * Generate a unique referral code.

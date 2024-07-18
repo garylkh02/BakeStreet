@@ -1,5 +1,3 @@
-<!-- resources/views/reviews.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')

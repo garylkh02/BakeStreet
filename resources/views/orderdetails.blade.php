@@ -85,7 +85,7 @@
                     <strong>No add-ons selected.</strong>
                     @endif
                 @endif
-                <!-- Other cake details -->
+         
                 @if ($order->status == 'completed')
                 <li class="pt-2 pb-3">
                     <a href="#" class="text-lg md:text-xl font-bold text-amber-500 hover:text-orange-500 underline hover:no-underline" data-toggle="modal" data-target="#reviewModal{{$cake->id}}">

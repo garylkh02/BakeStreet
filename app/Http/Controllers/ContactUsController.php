@@ -16,7 +16,6 @@ class ContactUsController extends Controller
 
     public function store(Request $request)
     {
-        // Create a new feedback
         $contactus = new ContactUs();
 
         $contactus->name = $request->input('name');

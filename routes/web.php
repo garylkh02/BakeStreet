@@ -48,6 +48,7 @@ Route::get('/allproducts/{id}', [AllProductsController::class, 'show']);
 Route::post('/wishlist/add', [WishlistController::class, 'add'])->name('wishlist.add');
 Route::post('/wishlist/remove', [WishlistController::class, 'remove'])->name('wishlist.remove');
 
+Route::get('/anniversary', [AllProductsController::class, 'anniversary'])->name('anniversary');
 Route::get('/christmas', [AllProductsController::class, 'christmas'])->name('christmas');
 Route::get('/klselangor', [AllProductsController::class, 'klselangor']);
 Route::get('/penang', [AllProductsController::class, 'penang']);

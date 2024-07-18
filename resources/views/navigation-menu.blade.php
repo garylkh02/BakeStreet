@@ -4,7 +4,6 @@
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 bg-amber-50">
         <div class="flex justify-between h-20">
             <div class="flex">
-                <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ Auth::user()->usertype == 'bakery' ? route('bakery.dashboard') : (Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('welcome')) }}">
                         <div class="logo">
@@ -124,14 +123,17 @@
                             </div>
                             
                             @if (Auth::user()->usertype == 'admin')
-                                <x-dropdown-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('bakery.dashboard')">
+                                <x-dropdown-link href="{{ route('admin.dashboard') }}">
                                     {{ __('Dashboard') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link href="{{ route('admin.enquirylist') }}" :active="request()->routeIs('bakery.dashboard')">
+                                <x-dropdown-link href="{{ route('admin.enquirylist') }}">
                                     {{ __('Enquiries') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link href="{{ route('admin.bakeryApplicationList') }}" :active="request()->routeIs('bakery.dashboard')">
+                                <x-dropdown-link href="{{ route('admin.bakeryApplicationList') }}">
                                     {{ __('Applications') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link href="{{ route('corporateOrders.list') }}">
+                                    {{ __('Corporate Order') }}
                                 </x-dropdown-link>
                             @endif
 
@@ -169,7 +171,6 @@
 
                             <div class="border-t border-gray-200 dark:border-gray-600"></div>
 
-                            <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
 
@@ -220,7 +221,6 @@
             @if (Auth::user()->usertype == 'user')
                 <div class="w-full bg-amber-400 mx-auto px-4 sm:px-6 lg:px-10 hidden md:block">
                     <div class="flex justify-between h-16">
-                        <!-- Your secondary navigation links here -->
                         <x-nav-link class="text-lg" href="/christmas" :active="request()->routeIs('bakery.orders')">
                             {{ __('Christmas 2024') }}
                         </x-nav-link> 
@@ -246,7 +246,6 @@
                             <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 origin-top-right bg-white border-4 border-white divide-y divide-gray-700 dark:divide-gray-700 rounded-md shadow-lg">
                                 <a href="{{ route('bakeries.list') }}"  class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Bakery') }}</a>
                                 <a href="{{ route('corporateOrder') }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Corporate Order') }}</a>
-                                <!-- Add more dropdown items as needed -->
                             </div>
                         </div>
                         
@@ -264,8 +263,7 @@
 
                             <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 origin-top-right bg-white border-4 border-white divide-y divide-gray-700 dark:divide-gray-700 rounded-md shadow-lg z-50">
                                 <a href="/christmas" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Christmas 2024') }}</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Product 2') }}</a>
-                                <!-- Add more dropdown items as needed -->
+                                <a href="/anniversary" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Anniversary') }}</a>
                             </div>
                         </div>
 
@@ -285,7 +283,6 @@
                                 <a href="/klselangor" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('KL / Selangor') }}</a>
                                 <a href="/penang" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Penang') }}</a>
                                 <a href="/jb" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Johor Bahru') }}</a>
-                                <!-- Add more dropdown items as needed -->
                             </div>
                         </div>
 
@@ -307,7 +304,6 @@
                                 <a href="/2days" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('2 Days') }}</a>
                                 <a href="/3days" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('3 Days') }}</a>
                                 <a href="/selfcollect" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-700 hover:bg-amber-300 dark:hover:bg-amber-300 hover:text-black">{{ __('Self-Collect') }}</a>
-                                <!-- Add more dropdown items as needed -->
                             </div>
                         </div>
 
@@ -369,6 +365,9 @@
                     <x-responsive-nav-link href="/christmas">
                         {{ __('Christmas') }}
                     </x-responsive-nav-link>
+                    <x-responsive-nav-link href="/anniversary">
+                        {{ __('Anniversary') }}
+                    </x-responsive-nav-link>     
                
                 <div class="border-t border-gray-400 dark:border-gray-400"></div>
                     <div class="block px-4 py-2 text-xs text-gray-500">
@@ -459,6 +458,18 @@
                     <x-responsive-nav-link href="{{ route('admin.bakeryApplicationList') }}">
                         {{ __('Applications') }}
                     </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('corporateOrders.list') }}">
+                        {{ __('Corporate Order') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('admin.newsletter.form') }}">
+                        {{ __('Newsletter') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('admin.bloglist') }}">
+                        {{ __('Blog') }}
+                    </x-responsive-nav-link>
+
+
+
                 @endif
                 
                 @if (Auth::user()->usertype == 'bakery')
@@ -470,6 +481,12 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('bakery.listproduct') }}">
                     {{ __('Menu') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('bakery.manageCategories') }}">
+                    {{ __('Category') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('bakery.custom.orders') }}">
+                    {{ __('Cake Customisation') }}
                 </x-responsive-nav-link>
                 @endif
 

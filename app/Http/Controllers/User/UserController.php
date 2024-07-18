@@ -15,7 +15,6 @@ use App\Models\Coupon;
 class UserController extends Controller
 {
     public function index(){
-        // Get the logged-in user
         $user = Auth::user();
         $userId = $user->id;
         // Count the pending and completed orders
@@ -37,7 +36,6 @@ class UserController extends Controller
 
         $availableCoupons = Coupon::where('user_id', $user->id)->where('is_used', 0)->where('expiry_date', '>', now())->exists();
 
-        // Pass the data to the view
         return view('dashboard', compact('user', 'pendingOrdersCount', 'completedOrdersCount', 'currentPoints', 'availableCoupons'));
     }
 
@@ -62,7 +60,6 @@ class UserController extends Controller
 
     public function showUserCoupons()
     {
-        // Get the current logged-in user
         $user = Auth::user();
     
         // Fetch available coupons for the logged-in user, filtered by is_used and expiry_date, and sorted by expiry_date
@@ -87,7 +84,6 @@ class UserController extends Controller
         // Check if the user's email is verified
         $isVerified = $user->hasVerifiedEmail();
     
-        // Pass the coupons and verification status to the view
         return view('showcoupons', compact('availableCoupons', 'usedCoupons', 'expiredCoupons', 'isVerified'));
     }
     
@@ -115,8 +111,8 @@ class UserController extends Controller
         return view('loyalty', [
             'availableCoupons' => $availableCoupons,
             'pointsActivities' => $pointsActivities,
-            'isVerified' => $isVerified, // Pass the verification status to the view
-            'referralCode' => $referralCode, // Pass the referral code to the view
+            'isVerified' => $isVerified, 
+            'referralCode' => $referralCode,
         ]);
     }
     

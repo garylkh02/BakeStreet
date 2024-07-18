@@ -1,4 +1,3 @@
-<!-- resources/views/bakery/partials/results.blade.php -->
 @extends('layouts.bakery')
 
 @section('content')

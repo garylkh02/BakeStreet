@@ -23,7 +23,6 @@ class Coupon extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Coupon.php (Model)
     public function isExpired()
     {
         return $this->expiry_date < now();

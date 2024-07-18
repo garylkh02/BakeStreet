@@ -439,9 +439,7 @@ const saveButton = document.getElementById('save-time');
 
 // Add a click event listener to the button
 saveButton.addEventListener('click', function() {
-    // Change the button text to "Saved"
     saveButton.textContent = 'Saved';
-    // Optionally, you can also disable the button to prevent multiple clicks
     saveButton.disabled = true;
 });
 
@@ -478,7 +476,7 @@ const datepicker = new Datepicker(datepickerElement, {
     minDate: nextDay,
     maxDate: maxDay
 });
-// Variable to store the selected date
+
 let selectedDate = new Date();
 
 // Event listener for datepicker changeDate event
@@ -504,9 +502,7 @@ document.getElementById('add-to-cart-button').addEventListener('click', function
         alert('Please select a date and time for delivery or pickup.');
     }
 
-    // Use the selectedDate variable here to pass the selected date value
     console.log('Selected date:', selectedDate);
-    // You can now pass the selectedDate value to your backend or perform any other action
 });
 
 
@@ -514,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.wishlist-icon').forEach(function (icon) {
         icon.addEventListener('click', function () {
             const cakeId = this.getAttribute('data-cake-id');
-            const isFilled = this.classList.contains('fa-solid'); // Check if the heart is filled
+            const isFilled = this.classList.contains('fa-solid'); 
 
             const url = isFilled ? '/wishlist/remove' : '/wishlist/add';
 
@@ -533,11 +529,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (data.status === 'added') {
                     this.classList.remove('fa-regular', 'wishlist-removed');
                     this.classList.add('fa-solid', 'wishlist-added');
-                    // Add any additional style changes here if needed
                 } else if (data.status === 'removed') {
                     this.classList.remove('fa-solid', 'wishlist-added');
                     this.classList.add('fa-regular', 'wishlist-removed');
-                    // Add any additional style changes here if needed
                 }
             })
             .catch(error => console.error('Error:', error));

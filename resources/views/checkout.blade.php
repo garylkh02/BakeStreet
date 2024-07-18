@@ -168,7 +168,6 @@
         <img src="/img/fpx.png" alt="FPX" class="payment-method">
         <img src="/img/apple.svg" alt="Apple Pay" class="payment-method mx-3">
         <img src="/img/googlepay.png" alt="Google Pay" class="payment-method">
-        <!-- Add more payment method images as needed -->
     </div>
 </div>
 
@@ -180,8 +179,8 @@
         const selfPickupAddress = document.getElementById('self-pickup-address');
         const deliveryFeeElement = document.getElementById('delivery-fee');
         const totalPriceElement = document.getElementById('discounted-price');
-        const homeDeliveryFee = 8.00; // Example delivery fee for home delivery
-        const selfPickupFee = 0.00; // Example delivery fee for self pickup
+        const homeDeliveryFee = 8.00; 
+        const selfPickupFee = 0.00;
 
         const streetInput = document.getElementById('street');
         const postcodeInput = document.getElementById('postcode');
@@ -300,7 +299,7 @@
         const removeCouponButton = document.getElementById('remove-coupon');
 
         removeCouponButton.addEventListener('click', function () {
-            fetch('{{ route("cart.removeCoupon") }}', {  // Assuming there's a route named 'cart.removeCoupon' to handle the removal
+            fetch('{{ route("cart.removeCoupon") }}', {  
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -322,7 +321,6 @@
                     document.getElementById('taheader').innerText = 'Total Amount Payable'; // Reset the total amount payable header
                     document.getElementById('disheader').innerText = 'Discount Amount'; // Reset the discount amount header
                     
-                    // You might want to update other elements on the page as needed
                 } else if (data.error) {
                     alert(data.error);
                 }
@@ -333,9 +331,6 @@
             });
         });
     });
-
-    // Set the countdown timer (e.g., 10 minutes)
-
 
     // Set the countdown timer (e.g., 10 minutes)
     var totalSeconds = 600; // 600 seconds = 10 minutes

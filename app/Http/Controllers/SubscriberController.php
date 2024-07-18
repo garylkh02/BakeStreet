@@ -22,8 +22,7 @@ class SubscriberController extends Controller
         if (Subscriber::where('email', $request->email)->exists()) {
             return redirect()->back()->with('error', 'You are already subscribed!');
         }
-    
-        // Create a new subscriber if the email does not exist
+
         Subscriber::create(['email' => $request->email]);
     
         return redirect()->back()->with('success', 'Subscribed successfully!');

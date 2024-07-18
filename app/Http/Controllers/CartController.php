@@ -20,7 +20,6 @@ class CartController extends Controller
 {
     public function store(Request $request, $id)
     {
-        // Validate the request input
        
         if (Auth::check()) {
             if (Auth::user()->usertype == 'user') {
@@ -66,7 +65,6 @@ class CartController extends Controller
                 $cart->deldate=$request->selected_date;
                 $cart->deltime=$request->selected_time;
                 $cart->cake_id=$cake->id;
-               /*  dd($request->all()); */
                 
                 $cart->save();
 
@@ -130,10 +128,8 @@ class CartController extends Controller
         if ($data) {
             // Delete the cart item
             $data->delete();
-            // Optionally, you can add a success message to the session
             return redirect()->back()->with('success', 'Item removed from cart successfully.');
         } else {
-            // Optionally, you can add an error message to the session
             return redirect()->back()->with('error', 'Item not found.');
         }
 
@@ -219,8 +215,8 @@ class CartController extends Controller
                         'message' => $item->message,
                         'bcandle' => $item->bcandle,
                         'scandle' => $item->scandle,
-                        'size' => $item->size, // Add size
-                        'addons' => $item->addons, // Add addons
+                        'size' => $item->size, 
+                        'addons' => $item->addons, 
                     ]);
                 }
         
@@ -245,7 +241,7 @@ class CartController extends Controller
     public function checkCoupon(Request $request)
     {
         $couponCode = $request->input('coupon_code');
-        $deliveryMethod = $request->input('delivery_method'); // Get the delivery method
+        $deliveryMethod = $request->input('delivery_method'); 
         $coupon = Coupon::where('code', $couponCode)->first();
 
         if (!$coupon) {
@@ -287,7 +283,7 @@ class CartController extends Controller
         // Initialize discount variables
         $discountAmount = 0;
         $discountedPrice = $totalPrice;
-        $deliveryFee = 8.00; // Example delivery fee
+        $deliveryFee = 8.00; 
 
         // Check if the coupon type is free_delivery
         if ($coupon->type == 'free_delivery') {
@@ -295,7 +291,7 @@ class CartController extends Controller
                 return response()->json(['error' => 'Free delivery vouchers cannot be used with self-pickup.']);
             }
             $discountAmount = 8.00; // Fixed discount amount for free delivery
-            $deliveryFee = 0.00; // Set delivery fee to 0
+            $deliveryFee = 0.00; 
         } else {
             // Calculate the discounted price for percentage-based discount
             $discount = $coupon->discount;
@@ -311,8 +307,8 @@ class CartController extends Controller
             'totalPrice' => $totalPrice,
             'discountAmount' => $discountAmount,
             'discountedPrice' => $discountedPrice,
-            'couponType' => $coupon->type, // Pass the coupon type to the frontend
-            'deliveryFee' => $deliveryFee // Pass the delivery fee to the frontend
+            'couponType' => $coupon->type,
+            'deliveryFee' => $deliveryFee
         ]);
     }
 
@@ -364,7 +360,7 @@ class CartController extends Controller
         ]);
     
         $orders = Order::where('user_id', Auth::id())->where('status', 'checking')->get();
-        $deliveryMethod = $request->input('delivery_method'); // Get the delivery method
+        $deliveryMethod = $request->input('delivery_method');
 
         if ($orders->isEmpty()) {
             return redirect()->route('cart.show')->with('error', 'No pending order found.');
@@ -379,7 +375,6 @@ class CartController extends Controller
         $priceBefore = session('priceBefore');
         $deliveryFee = 8.00;
 
-        // Get the delivery method from the request
         $deliveryMethod = $request->input('delivery-method');
 
         // Check if the delivery method is 'pickup'
@@ -394,7 +389,7 @@ class CartController extends Controller
                 if ($coupon && $coupon->type == 'free_delivery') {
                     $deliveryFee = 0.00;
                 } else {
-                    $deliveryFee = 8.00; // Example delivery fee
+                    $deliveryFee = 8.00;
                 }
             }
         }
@@ -409,14 +404,14 @@ class CartController extends Controller
             $order->postcode = $request->input('postcode');
             $order->city = $request->input('city');
             $order->state = $request->input('state');
-            $order->status = 'unpaid'; // Update the status to unpaid
+            $order->status = 'unpaid';
             $order->discount = $discountAmount;
             $order->newprice = $totalPrice;
             $order->promocode = $coupon ? $coupon->code : null;
             $order->deliveryfee = $deliveryFee;
             $order->pricebefdis = $priceBefore;
-            $order->subtotal = $subtotal; // Store subtotal in the order
-            $order->service_tax = $serviceTax; // Store service tax in the order
+            $order->subtotal = $subtotal; 
+            $order->service_tax = $serviceTax; 
             $order->delivery_instructions = $request->input('delivery_instructions');
     
             $order->save();
@@ -455,7 +450,7 @@ class CartController extends Controller
 
     protected function addLoyaltyPoints($userId, $totalPrice, $orderId)
     {
-        $points = floor($totalPrice); // Example: 1 point per RM
+        $points = floor($totalPrice); // 1 point per RM
 
         // Retrieve the user
         $user = User::find($userId);

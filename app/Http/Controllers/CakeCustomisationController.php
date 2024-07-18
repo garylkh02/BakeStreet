@@ -25,7 +25,6 @@ class CakeCustomisationController extends Controller
 
     public function submitCustomisationForm(Request $request)
     {
-        // Create a new cake customization
         $cake_customisations = new CakeCustomisation();
     
         $cake_customisations->bakery_id = $request->input('bakery_id');
@@ -45,17 +44,14 @@ class CakeCustomisationController extends Controller
         $cake_customisations->billaddress=$request->address;
         $cake_customisations->size = $request->cake_size;
 
-        // Debugging statement
         if (!$request->hasFile('photo')) {
             return redirect()->back()->with('error', 'No file uploaded.');
         }
 
-        // Validate the request
         $request->validate([
             'photo' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle the file upload
         $file = $request->file('photo');
         $fileName = time().'.'.$file->getClientOriginalExtension();
         $path = $file->storeAs('images', $fileName, 'public');
@@ -64,8 +60,7 @@ class CakeCustomisationController extends Controller
 
         $cake_customisations->status='pending';
 
-        // Set a fixed price for the customized cake
-        $fixedPrice = 88.80; // Set your fixed price here
+        $fixedPrice = 88.80;
         $cake_customisations->price = $fixedPrice;
       
         $cake_customisations->save();

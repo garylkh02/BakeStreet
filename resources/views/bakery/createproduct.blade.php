@@ -202,7 +202,7 @@
             img.onload = function() {
                 if (img.width !== img.height) {
                     alert('Please upload a square photo.');
-                    document.getElementById('photo').value = ''; // Clear the input
+                    document.getElementById('photo').value = ''; 
                 }
             };
         }
